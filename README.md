@@ -46,13 +46,13 @@ Day 4
 -----
 
 Most of the work here was parsing the input file, though this was simple
-with `Parsec`{.Haskell}. For the actual question I used
-`Data.Map`{.Haskell} to sum up amounts of times guards were sleeping.
+with `Parsec`. For the actual question I used `Data.Map` to sum up
+amounts of times guards were sleeping.
 
 Day 5
 -----
 
-This task was really about free groups. Although I didn\'t realise that
+This task was really about free groups. Although I didn't realise that
 there was a built in free group library in Haskell, it still allowed me
 to see that as removing a letter is a group homomorphism and reducing
 the element just takes it to a different representation of the same
@@ -71,11 +71,11 @@ more points by the properties of taxicab distance.
 
 For the second part my solution was quite slow, in that it was basically
 the naive solution except noticing that the grid we needed to consider
-points that were at most `` 10000 `div` n ``{.Haskell} outside the grid
-instead of `10000`{.Haskell} where n is the number of coordinates we
-had. This could have been sped up by cutting out large rectangles that
-were all safe at a time or using some heuristic to easily do the middle,
-leaving only the edge cases.
+points that were at most `` 10000 `div` n `` outside the grid instead of
+`10000` where n is the number of coordinates we had. This could have
+been sped up by cutting out large rectangles that were all safe at a
+time or using some heuristic to easily do the middle, leaving only the
+edge cases.
 
 Day 7
 -----
@@ -96,8 +96,8 @@ proved to be a decent way of doing this.
 Day 8
 -----
 
-This was straightforward with the power of the `Text.Parsec`{.Haskell}
-library and using the built in `Data.Tree`{.Haskell} library in Haskell
+This was straightforward with the power of the `Text.Parsec` library and
+using the built in `Data.Tree` library in Haskell
 
 Day 9
 -----
@@ -105,13 +105,12 @@ Day 9
 In part 2 of this calculating scores by latest first caused the program
 to stack overflow. This was solved by reversing the list before
 calculating it though it is likely that a better solution would be to
-deeply make `GameState`{.Haskell} a strict data type. My solution was
-very slow. Maybe something could be done with the
-`Data.Vector`{.Haskell} package though this would make adding and
-popping elements slow so probably not. Ideally what was wanted was a
-mutable doubly linked list but I would try making `GameState`{.Haskell}
-strict first and see if this solves the issues. Also we do not need to
-link the scores to the `GameState`{.Haskell} as this causes a lot of
+deeply make `GameState` a strict data type. My solution was very slow.
+Maybe something could be done with the `Data.Vector` package though this
+would make adding and popping elements slow so probably not. Ideally
+what was wanted was a mutable doubly linked list but I would try making
+`GameState` strict first and see if this solves the issues. Also we do
+not need to link the scores to the `GameState` as this causes a lot of
 copying data around so this should be separated.
 
 Day 10
