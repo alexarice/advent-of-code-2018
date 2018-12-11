@@ -1,8 +1,8 @@
-module Day3 where
+module Day03 where
 
 import Text.Parsec
 import Data.List hiding (intersect)
-import Day2
+import Day02
 
 data Rectangle = Rectangle{ _elfId :: Int, _left :: Int, _top :: Int, _width :: Int, _height :: Int} deriving Show
 

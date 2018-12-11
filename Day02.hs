@@ -1,4 +1,4 @@
-module Day2 where
+module Day02 where
 
 import Data.List
 
@@ -26,4 +26,3 @@ aresame (x:xs) (y:ys) = if x == y then aresame xs ys else aresame' xs ys where
   aresame' (x:xs) (y:ys) = if x == y then aresame' xs ys else False
 
 checkpairs (x:xs) = let y = filter (aresame x) xs in if length y > 0 then  map fst (filter (\(a,b) -> a == b) (zip x (head y))) else checkpairs xs
-

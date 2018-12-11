@@ -1,6 +1,6 @@
 {-# LANGUAGE TupleSections #-}
 
-module Day7 where
+module Day07 where
 
 import Text.Parsec
 import Data.Array
