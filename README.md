@@ -1,16 +1,16 @@
--   [Advent of Code 2018](#advent-of-code-2018)
--   [Thoughts on Different Parts](#thoughts-on-different-parts)
-    -   [Day 1](#day-1)
-    -   [Day 2](#day-2)
-    -   [Day 3](#day-3)
-    -   [Day 4](#day-4)
-    -   [Day 5](#day-5)
-    -   [Day 6](#day-6)
-    -   [Day 7](#day-7)
-    -   [Day 8](#day-8)
-    -   [Day 9](#day-9)
-    -   [Day 10](#day-10)
-    -   [Day 11](#day-11)
+-   [Advent of Code 2018](#markdown-header-advent-of-code-2018)
+-   [Thoughts on Different Parts](#markdown-header-thoughts-on-different-parts)
+    -   [Day 1](#markdown-header-day-1)
+    -   [Day 2](#markdown-header-day-2)
+    -   [Day 3](#markdown-header-day-3)
+    -   [Day 4](#markdown-header-day-4)
+    -   [Day 5](#markdown-header-day-5)
+    -   [Day 6](#markdown-header-day-6)
+    -   [Day 7](#markdown-header-day-7)
+    -   [Day 8](#markdown-header-day-8)
+    -   [Day 9](#markdown-header-day-9)
+    -   [Day 10](#markdown-header-day-10)
+    -   [Day 11](#markdown-header-day-11)
 
 Advent of Code 2018
 ===================
@@ -66,7 +66,7 @@ amounts of times guards were sleeping.
 Day 5
 -----
 
-This task was really about free groups. Although I didn\'t realise that
+This task was really about free groups. Although I didn't realise that
 there was a built in free group library in Haskell, it still allowed me
 to see that as removing a letter is a group homomorphism and reducing
 the element just takes it to a different representation of the same
