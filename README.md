@@ -1,37 +1,44 @@
-# Table of Contents
+Advent of Code 2018
+===================
 
-1.  [Advent of Code 2018](#org321daed)
-2.  [Thoughts on Different Parts](#org1246d1e)
-    1.  [Day 9](#orgf3054e1)
-    2.  [Day 11](#org7deedfa)
+Code for advent of code 2018 written in Haskell
 
+Thoughts on Different Parts
+===========================
 
-<a id="org321daed"></a>
+Day 9
+-----
 
-# Advent of Code 2018
+In part 2 of this calculating scores by latest first caused the program
+to stack overflow. This was solved by reversing the list before
+calculating it though it is likely that a better solution would be to
+deeply make GameState a strict data type. My solution was very slow.
+Maybe something could be done with the Vector package though this would
+make adding and popping elements slow so probably not. Ideally what was
+wanted was a mutable doubly linked list but I would try making GameState
+strict first and see if this solves the issues. Also we do not need to
+link the scores to the GameState as this causes a lot of copying data
+around so this should be separated.
 
-Code for advent of code 2018 written in haskell
+Day 10
+------
 
+This was done in the most naive way possible and therefore took quite a
+lot of time. The correct image was found by finding the image where the
+points were closest together and then manually inspecting the images
+before and after this one. Haskell lazyness should mean that not all the
+images needed to be generated. This could have been sped up a lot by
+using some form of binary search.
 
-<a id="org1246d1e"></a>
+Day 11
+------
 
-# Thoughts on Different Parts
+The code for this was very slow. Possible improvements for this that I
+can think of are:
 
-
-<a id="orgf3054e1"></a>
-
-## Day 9
-
-In part 2 of this calculating scores by latest first caused the program to stack overflow. This was solved by reversing the list before calculating it though it is likely that a better solution would be to deeply make GameState a strict data type. My solution was very slow. Maybe something could be done with the Vector package though this would make adding and popping elements slow so probably not. Ideally what was wanted was a mutable doubly linked list but I would try making GameState strict first and see if this solves the issues. Also we do not need to link the scores to the GameState as this causes a lot of copying data around so this should be separated.
-
-
-<a id="org7deedfa"></a>
-
-## Day 11
-
-The code for this was very slow. Possible improvements for this that I can think of are:
-
--   Perform the even steps by adding horizontal parts together first, then adding vertical parts of the horizontal parts. This reduces the number of additions from 4 to 3
+-   Perform the even steps by adding horizontal parts together first,
+    then adding vertical parts of the horizontal parts. This reduces the
+    number of additions from 4 to 3
 -   Find some better configuration for odd squares
 -   Try making the code parallel
 -   Finding some heuristic that rules out large sections
