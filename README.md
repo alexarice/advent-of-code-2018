@@ -11,6 +11,7 @@
     -   [Day 9](#markdown-header-day-9)
     -   [Day 10](#markdown-header-day-10)
     -   [Day 11](#markdown-header-day-11)
+    -   [Day 12](#markdown-header-day-12)
 
 Advent of Code 2018
 ===================
@@ -46,7 +47,7 @@ which did a following,
 2.  Get a list of all the rectangles this intersects
     -   If this list is empty then we have found the answer
     -   Otherwise partition the remaining Rectangles into ones that have
-        been intersected and ones that haven\'t
+        been intersected and ones that haven't
 3.  Use the intersected rectangles as a queue, popping off the top, and
     adding all rectangles that it intersects with (out of those which
     have not been added to the queue yet) to the back of the queue
@@ -150,3 +151,34 @@ can think of are:
 -   Try making the code parallel
 -   Finding some heuristic that rules out large sections
 -   Taking some vastly different approach
+
+Day 12
+------
+
+This question was about Cell Automata. Parsing was again
+straightforward. I used that Cell Automata form comonads as described in
+[this
+article](http://blog.sigfpe.com/2006/12/evaluating-cellular-automata-is.html).
+This worked well for part1, where I also used the arrow library though
+this was very unnecessary. I realised that this would not work for
+part2, which required it to work on a much larger number. Unfortunately
+I didn\'t quite grasp how much larger the number was (which should have
+been obvious as it was huge) and so I spent a lot of time trying to
+optimize it by culling of areas where there were just no pots and uses
+sequences. The result was exponentially quicker though still struggled
+with any amount of iterations into the thousands. It should have been
+obvious earlier but if we look at the output after 200 iterations we get
+(with the summing removed):
+
+``` {.Haskell}
+*Day12Part2 Day12Part2> sumIterate 200 <$> readParseFile
+[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,125,0,127,0,129,0,131,0,133,0,135,0,137,0,139,0,141,0,143,0,145,0,147,0,149,0,151,0,153,0,155,0,157,0,159,0,161,0,163,0,165,0,167,0,169,0,171,0,173,0,175,0,177,0,179,0,181,0,183,0,185,0,187,0,189,0,191,0,193,0,195,0,197,0,199,0,201,0,203,0,205,0,207,0,209,0,211,0,213,0,215,0,217,0,219,0,221,0,223,0,225,0,227,0,229,0,231,0,233,0,235,0,237,0,239,0,241,0,243,0,245,0,247,0,249,0,251,0,253,0,255,0,257,0,259,0,261,0,263,0,265,0,267,0,269,0,271,0,273,0,275,0,277,0,279,0,281,0,283,0,285,0,287,0,289,0,291,0,293,0,295,0,297,0,0]
+```
+
+Then two things are obvious.
+
+1.  My code could have been further optimized by letting the focus point
+2.  Doing the above would not have helped at all as it is clear you were
+    meant to realise that there was a pattern of every other pot
+    containing a plant and they all move 1 to the right each time. Then
+    it is easy to calculate any further iteration.
