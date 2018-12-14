@@ -1,4 +1,7 @@
--   [Advent of Code 2018](#markdown-header-advent-of-code-2018)
+---
+title: Advent of Code 2018
+---
+
 -   [Thoughts on Different Parts](#markdown-header-thoughts-on-different-parts)
     -   [Day 1](#markdown-header-day-1)
     -   [Day 2](#markdown-header-day-2)
@@ -12,9 +15,7 @@
     -   [Day 10](#markdown-header-day-10)
     -   [Day 11](#markdown-header-day-11)
     -   [Day 12](#markdown-header-day-12)
-
-Advent of Code 2018
-===================
+    -   [Day 13](#markdown-header-day-13)
 
 Code for [Advent of Code 2018](https://adventofcode.com/2018) written in
 Haskell
@@ -196,3 +197,12 @@ Then two things are obvious.
     meant to realise that there was a pattern of every other pot
     containing a plant and they all move 1 to the right each time. Then
     it is easy to calculate any further iteration.
+
+Day 13
+------
+
+This question was theoretically straightforward though had a lot of data
+to keep track of and cases to implement which led to many bugs. Using
+the example given (in day13datasmall.txt) and heavy use of `Debug.Trace`
+allowed the errors to be tracked down. The second part followed easily
+from the first.

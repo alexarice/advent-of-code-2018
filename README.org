@@ -1,6 +1,5 @@
+#+TITLE: Advent of Code 2018
 #+OPTIONS: toc:2
-
-* Advent of Code 2018
 
 Code for [[https://adventofcode.com/2018][Advent of Code 2018]] written in Haskell
 
@@ -45,7 +44,7 @@ Code for [[https://adventofcode.com/2018][Advent of Code 2018]] written in Haske
     - Finding some heuristic that rules out large sections
     - Taking some vastly different approach
 ** Day 12
-This question was about Cell Automata. Parsing was again straightforward. I used that Cell Automata form comonads as described in [[http://blog.sigfpe.com/2006/12/evaluating-cellular-automata-is.html][this article]]. This worked well for part1, where I also used the arrow library though this was very unnecessary. I realised that this would not work for part2, which required it to work on a much larger number. Unfortunately I didn't quite grasp how much larger the number was (which should have been obvious as it was huge) and so I spent a lot of time trying to optimize it by culling of areas where there were just no pots and uses sequences. The result was exponentially quicker though still struggled with any amount of iterations into the thousands. It should have been obvious earlier but if we look at the output after 200 iterations we get (with the summing removed):
+ This question was about Cell Automata. Parsing was again straightforward. I used that Cell Automata form comonads as described in [[http://blog.sigfpe.com/2006/12/evaluating-cellular-automata-is.html][this article]]. This worked well for part1, where I also used the arrow library though this was very unnecessary. I realised that this would not work for part2, which required it to work on a much larger number. Unfortunately I didn't quite grasp how much larger the number was (which should have been obvious as it was huge) and so I spent a lot of time trying to optimize it by culling of areas where there were just no pots and uses sequences. The result was exponentially quicker though still struggled with any amount of iterations into the thousands. It should have been obvious earlier but if we look at the output after 200 iterations we get (with the summing removed):
 #+BEGIN_SRC Haskell
 *Day12Part2 Day12Part2> sumIterate 200 <$> readParseFile
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -67,3 +66,5 @@ This question was about Cell Automata. Parsing was again straightforward. I used
 Then two things are obvious.
 1. My code could have been further optimized by letting the focus point
 2. Doing the above would not have helped at all as it is clear you were meant to realise that there was a pattern of every other pot containing a plant and they all move 1 to the right each time. Then it is easy to calculate any further iteration.
+** Day 13
+This question was theoretically straightforward though had a lot of data to keep track of and cases to implement which led to many bugs. Using the example given (in day13datasmall.txt) and heavy use of ~Debug.Trace~ allowed the errors to be tracked down. The second part followed easily from the first.
