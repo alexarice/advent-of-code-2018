@@ -68,3 +68,7 @@ Then two things are obvious.
 2. Doing the above would not have helped at all as it is clear you were meant to realise that there was a pattern of every other pot containing a plant and they all move 1 to the right each time. Then it is easy to calculate any further iteration.
 ** Day 13
 This question was theoretically straightforward though had a lot of data to keep track of and cases to implement which led to many bugs. Using the example given (in day13datasmall.txt) and heavy use of ~Debug.Trace~ allowed the errors to be tracked down. The second part followed easily from the first.
+** Day 14
+I originally tried to do a dynamic programming approach as specified in [[https://wiki.haskell.org/Dynamic_programming_example][this article.]] However this did not work as our recurrence relation could produce either 1 or 2 elements and it relied on the previous data to know how many it was producing. This meant that the haskell arrays could not produce the indices to create the array and haskell arrays are strict in the indices of the generating list. I wonder if there is an (unsafe) array which does not need to do this in haskell.
+
+I then tried some different things involving mutable vectors but in the end using Data.Seq gave me the correct answer. This question really wanted a data structure like C++ ~Std::Vector~.

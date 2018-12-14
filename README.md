@@ -16,6 +16,7 @@
     -   [Day 11](#markdown-header-day-11)
     -   [Day 12](#markdown-header-day-12)
     -   [Day 13](#markdown-header-day-13)
+    -   [Day 14](#markdown-header-day-14)
 
 Code for [Advent of Code 2018](https://adventofcode.com/2018) written in
 Haskell
@@ -206,3 +207,19 @@ to keep track of and cases to implement which led to many bugs. Using
 the example given (in day13datasmall.txt) and heavy use of `Debug.Trace`
 allowed the errors to be tracked down. The second part followed easily
 from the first.
+
+Day 14
+------
+
+I originally tried to do a dynamic programming approach as specified in
+[this article.](https://wiki.haskell.org/Dynamic_programming_example)
+However this did not work as our recurrence relation could produce
+either 1 or 2 elements and it relied on the previous data to know how
+many it was producing. This meant that the haskell arrays could not
+produce the indices to create the array and haskell arrays are strict in
+the indices of the generating list. I wonder if there is an (unsafe)
+array which does not need to do this in haskell.
+
+I then tried some different things involving mutable vectors but in the
+end using Data.Seq gave me the correct answer. This question really
+wanted a data structure like C++ `Std::Vector`.
